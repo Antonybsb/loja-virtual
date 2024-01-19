@@ -50,6 +50,28 @@ b {
   margin-top: 70px;
 }
 
+.borda-fixa {
+  border: 1px solid var(--color-secondary) !important;
+  border-radius: 5px;
+}
+
+.borda-fixa-externa {
+  border: 1px solid var(--color-separate) !important;
+}
+
+.zoom-div {
+  /* width: 200px;
+  height: 200px; */
+  /* background-color: #3498db; */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave para o efeito */
+  transform-origin: center center; /* Define o ponto de origem no centro da div */
+  backface-visibility: hidden;
+}
+
+.zoom-div:hover {
+  transform: scale(1.08);
+}
+
 /*============ SECTION CAROUSEL AVISOS TOPO ============*/
 
 .carouselAvisos {

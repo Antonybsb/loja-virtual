@@ -16,13 +16,16 @@ carousel.eventos = {
 }
 
 carousel.metodos = {
+  // Função para formatar o preço
+  formatarPreco: preco => {
+    return preco.replace('.', ',')
+  },
+
   carregarAlimentos: () => {
     var filtro = PRODUTOS['alimentos']
     filtro.forEach(produto => {
-      const formattedPrice = produto.price.replace('.', ',')
-      $('#itensCarousel').append(
-        carousel.templates.itemAlimento({ ...produto, price: formattedPrice })
-      )
+      produto.price = carousel.metodos.formatarPreco(produto.price)
+      $('#itensCarousel').append(carousel.templates.itemAlimento(produto))
     })
     $('#itensCarousel').slick({
       slidesToShow: 5,
@@ -36,6 +39,7 @@ carousel.metodos = {
   carregarMedicamentos: () => {
     var filtro = PRODUTOS['medicamentos']
     filtro.forEach(produto => {
+      produto.price = carousel.metodos.formatarPreco(produto.price)
       $('#itensCarousel2').append(carousel.templates.itemMedicamentos(produto))
     })
     $('#itensCarousel2').slick({
@@ -82,34 +86,34 @@ carousel.templates = {
 </div>
   `,
   itemMedicamentos: produto => `
-  <div class="card-medicamentos">
-  <img src="${produto.img}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
-    <p class="card-text">${produto.desc}
-    </p>
-    <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
-  </div>
-  <div class="card-footer">
-    <div class="row mx-auto py-2">
-      <div class="col ">
-        <div class="quantidade">
-          <input class="btn btn-primary menos"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            type="button" value='-' />
-          <input class="btn btn-primary text"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-          <input class="btn btn-primary mais"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            type="button" value='+' />
-          <button class="btn btn-success"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            type="submit">Comprar</button>
+    <div class="card-medicamentos">
+    <img src="${produto.img}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
+      <p class="card-text">${produto.desc}
+      </p>
+      <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
+    </div>
+    <div class="card-footer">
+      <div class="row mx-auto py-2">
+        <div class="col ">
+          <div class="quantidade">
+            <input class="btn btn-primary menos"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              type="button" value='-' />
+            <input class="btn btn-primary text"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+            <input class="btn btn-primary mais"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              type="button" value='+' />
+            <button class="btn btn-success"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              type="submit">Comprar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-  `
+    `
 }
