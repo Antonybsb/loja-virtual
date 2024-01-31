@@ -183,13 +183,13 @@ b {
 .btn-icon .icon {
   display: inline-block;
   color: var(--color-black);
-  background-color: var(--color-primary);
-  width: 45px;
-  height: 45px;
+  background-color: var(--color-white);
+  width: 36px;
+  height: 36px;
   position: absolute;
-  right: 20px;
-  margin-top: -8px;
-  border-radius: 15px;
+  right: 40px;
+  margin-top: -4px;
+  border-radius: 10px;
   text-align: center;
   padding-top: 6px;
 }
@@ -502,9 +502,10 @@ select.form-control {
   width: 25px;
   height: 25px;
   position: absolute;
-  background-color: var(--color-secondary);
+  background-color: var(--color-red);
+  color: var(--color-white);
   border-radius: 50px;
-  right: -5px;
+  right: -20px;
   font-size: 14px;
   font-weight: bold;
   display: flex;
@@ -514,11 +515,12 @@ select.form-control {
 
 .botao-carrinho {
   position: fixed;
-  right: 30px;
+  right: 120px;
   bottom: 50px;
   height: 50px;
   width: 50px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;

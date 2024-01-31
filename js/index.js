@@ -1,5 +1,5 @@
-function updateQuantity(element, quant) {
-  var quantidadeElement = element.parentElement.querySelector('.text')
+function updateQuantity(element, quant, productId) {
+  var quantidadeElement = document.getElementById(`quantInput-${productId}`)
   var value = parseInt(quantidadeElement.value)
   value = Math.max(1, value + quant)
   quantidadeElement.value = value
@@ -29,4 +29,4 @@ jQuery(document).ready(function () {
   })
 })
 
-element('snippets/botoes_qty')
+// element('snippets/botoes_qty')
