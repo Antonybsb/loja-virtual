@@ -83,10 +83,21 @@ carousel.metodos = {
 
       // Se o elemento existe, adicione-o ao carrinho
       if (elemento) {
-        // Adiciona o elemento ao carrinho com a quantidade atual
-        elemento.qntd = quantAtual
-        MEU_CARRINHO.push(elemento)
+        // Validar se já existe esse item no carrinho
+        let existe = MEU_CARRINHO.find(elem => elem.id === id)
 
+        // Caso já exista no carrinho, só altera a quantidade.
+        if (existe !== undefined) {
+          let objIndex = MEU_CARRINHO.findIndex(obj => obj.id === id)
+          MEU_CARRINHO[objIndex].qntd += quantAtual // Soma a quantidade atual
+        } else {
+          // Caso ainda não exista o item no carrinho, adiciona ele
+          // Adiciona o elemento ao carrinho com a quantidade atual
+          elemento.qntd = quantAtual
+          MEU_CARRINHO.push(elemento)
+        }
+
+        // carousel.metodos.mensagem('Item adicionado ao carrinho', 'green')
         // Atualiza a quantidade na interface para zero
         $('#quantInput-' + id).text(0)
 
@@ -100,18 +111,43 @@ carousel.metodos = {
       // Se a quantidade atual for zero, exiba uma mensagem de erro ou aviso
       carousel.metodos.mensagem('Selecione uma quantidade válida', 'red')
     }
+
+    carousel.metodos.atualizarBadgeTotal()
+  },
+
+  // Atualiza o badge de totais dos botões "Meu carrinho"
+  atualizarBadgeTotal: () => {
+    var total = 0
+
+    $.each(MEU_CARRINHO, (i, e) => {
+      total += e.qntd
+    })
+
+    if (total > 0) {
+      $('.botao-carrinho').removeClass('hidden')
+      $('.container-total-carrinho').removeClass('hidden')
+    } else {
+      $('.botao-carrinho').addClass('hidden')
+      $('.container-total-carrinho').addClass('hidden')
+    }
+
+    $('.badge-total-carrinho').html(total)
   },
 
   //Mensagens
   mensagem: (texto, cor = 'red', tempo = 3500) => {
+    console.log('Chamando função mensagem...')
     let id = Math.floor(Date.now() * Math.random()).toString()
     let msg = `<div id="msg-${id}" class="animated fadeInDown toast ${cor}">${texto}</div>`
+    console.log('Mensagem criada:', msg)
     $('#container-mensagens').append(msg)
 
     setTimeout(() => {
+      console.log('Removendo classes de animação...')
       $('#msg-' + id).removeClass('fadeInDown')
       $('#msg-' + id).addClass('fadeOutUp')
       setTimeout(() => {
+        console.log('Removendo mensagem do DOM...')
         $('#msg-' + id).remove()
       }, 800)
     }, tempo)

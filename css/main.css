@@ -536,7 +536,7 @@ select.form-control {
   position: fixed;
   right: 20px;
   top: 20px;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .toast {
@@ -552,7 +552,7 @@ select.form-control {
 }
 
 .toast.green {
-  background-color: var(--color-green);
+  background-color: var(--color-secondary);
 }
 
 .carrinho-vazio {
