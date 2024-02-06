@@ -526,54 +526,53 @@ carousel.metodos = {
 }
 
 carousel.templates = {
-  itemAlimento: produto => `
-  <div class="card-alimentos" id=${produto.id}>
-  <img src="${produto.img}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
-    <p class="fs-6 text-capitalize">${produto.desc}
-    </p>
-    <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
-  </div>
-  <div class="card-footer">
-    <div class="row mx-auto py-2">
-      <div class="col ">
-        <div class="quantidade">
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.diminuirQuantidade('${produto.id}')"><i class="fa-solid fa-minus"></i></span>
-          <span class="btn btn-primary btn-sm" id="quantInput-${produto.id}" >0</span>
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.aumentarQuantidade('${produto.id}')"><i class="fa-solid fa-plus"></i></span>
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.adicionarAoCarrinho('${produto.id}', 'alimentos')">Comprar</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  //   itemAlimento: produto => `
+  //   <div class="card-alimentos" id=${produto.id}>
+  //   <img src="${produto.img}" class="card-img-top" alt="...">
+  //   <div class="card-body">
+  //     <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
+  //     <p class="fs-6 text-capitalize">${produto.desc}
+  //     </p>
+  //     <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
+  //   </div>
+  //   <div class="card-footer">
+  //     <div class="row mx-auto py-2">
+  //       <div class="col ">
+  //         <div class="quantidade">
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.diminuirQuantidade('${produto.id}')"><i class="fa-solid fa-minus"></i></span>
+  //           <span class="btn btn-primary btn-sm" id="quantInput-${produto.id}" >0</span>
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.aumentarQuantidade('${produto.id}')"><i class="fa-solid fa-plus"></i></span>
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.adicionarAoCarrinho('${produto.id}', 'alimentos')">Comprar</span>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
 
-  
-  `,
-  itemMedicamentos: produto => `
-  <div class="card-medicamentos" id=${produto.id}>
-  <img src="${produto.img}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
-    <p class="fs-6 text-capitalize">${produto.desc}
-    </p>
-    <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
-  </div>
-  <div class="card-footer">
-    <div class="row mx-auto py-2">
-      <div class="col ">
-        <div class="quantidade">
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.diminuirQuantidade('${produto.id}')"><i class="fa-solid fa-minus"></i></span>
-          <span class="btn btn-primary btn-sm" id="quantInput-${produto.id}" >0</span>
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.aumentarQuantidade('${produto.id}')"><i class="fa-solid fa-plus"></i></span>
-          <span class="btn btn-primary btn-sm" onclick="carousel.metodos.adicionarAoCarrinho('${produto.id}', 'medicamentos')">Comprar</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    `,
+  //   `,
+  //   itemMedicamentos: produto => `
+  //   <div class="card-medicamentos" id=${produto.id}>
+  //   <img src="${produto.img}" class="card-img-top" alt="...">
+  //   <div class="card-body">
+  //     <h5 class="card-subtitle mb-2 text-body-secondary">${produto.name}</h5>
+  //     <p class="fs-6 text-capitalize">${produto.desc}
+  //     </p>
+  //     <h5 class="card-title" style="color: var(--color-secondary);">R$ ${produto.price}</h5>
+  //   </div>
+  //   <div class="card-footer">
+  //     <div class="row mx-auto py-2">
+  //       <div class="col ">
+  //         <div class="quantidade">
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.diminuirQuantidade('${produto.id}')"><i class="fa-solid fa-minus"></i></span>
+  //           <span class="btn btn-primary btn-sm" id="quantInput-${produto.id}" >0</span>
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.aumentarQuantidade('${produto.id}')"><i class="fa-solid fa-plus"></i></span>
+  //           <span class="btn btn-primary btn-sm" onclick="carousel.metodos.adicionarAoCarrinho('${produto.id}', 'medicamentos')">Comprar</span>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //     `,
 
   itemCarrinho: produto => `
   <div class="col-12 item-carrinho">
