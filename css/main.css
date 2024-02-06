@@ -50,6 +50,16 @@ b {
   margin-top: 70px;
 }
 
+.btn-verde {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+}
+
+.btn-verde:hover {
+  background-color: #155315 !important;
+  border-color: #155315 !important;
+}
+
 .borda-fixa {
   border: 1px solid var(--color-secondary) !important;
   border-radius: 5px;
@@ -196,9 +206,9 @@ b {
 
 /*============ SECTION CAROUSEL OFERTAS ============*/
 
-.carouselOfertas {
+/* .carouselOfertas {
   margin-top: 144px;
-}
+} */
 
 .carousel-inner {
   height: 400px;
@@ -248,6 +258,8 @@ b {
 }
 
 /*============ PARCEIROS ============*/
+
+/*============ SERVIÇOS ============*/
 
 /*============ FOOTER ============*/
 .redessociais {
@@ -306,6 +318,7 @@ b {
 /*=====================================*/
 
 .etapas {
+  margin-top: 20px;
   display: flex;
 }
 

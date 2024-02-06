@@ -33,14 +33,15 @@
 
   </div>
 
-  <a class="botao-carrinho hidden">
+  <!-- ============ BOTÃO DE CARRINHO FLUTUANTE ============-->
+  <a class="btn-verde botao-carrinho hidden" onclick="carousel.metodos.abrirCarrinho(true)">
     <div class="badge-total-carrinho">0</div>
     <i class="fa-solid fa-cart-shopping"></i>
   </a>
 
   <!-- ============ SECTION SECTION NAVBAR ============-->
 
-  <section class="header  fixed-top">
+  <section class="header  ">
     <section class="avisos">
       <div id="carouselExampleSlidesOnly" class="carouselAvisos carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner1 carousel-inner" style="height: 48px;">
@@ -82,10 +83,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0 fw-normal ">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#alimentos">Alimentos</a>
+                <a class="nav-link active " aria-current="page" href="#sectionAlimentos">Alimentos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#medicamentos">Medicamentos</a>
+                <a class="nav-link active" aria-current="page" href="#sectionMedicamentos">Medicamentos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#ofertas">Ofertas</a>
@@ -95,7 +96,7 @@
               </li>
             </ul>
           </div>
-          <a class="btn btn-success btn-icon btn-lg ">
+          <a class="btn btn-success btn-icon btn-lg btn-verde" onclick="carousel.metodos.abrirCarrinho(true)">
             Meu Carrinho <span class="icon ">
               <div class="container-total-carrinho badge-total-carrinho hidden">0</div>
               <i class="fa-solid fa-cart-shopping"></i>
@@ -106,14 +107,6 @@
     </div>
 
   </section>
-
-
-
-  <!-- ============ BOTÃO DE CARRINHO FLUTUANTE ============-->
-  <!-- <a class="botao-carrinho animated bounceIn hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
-    <div class="badge-total-carrinho">0</div>
-    <i class="fa fa-shopping-bag"></i>
-  </a> -->
 
 
 
@@ -201,7 +194,7 @@
 
   <!-- ============ CAROUSEL  ALIMENTOS ============-->
 
-  <section class="sectionAlimentos sectionMarginTop active">
+  <section class="section-alimentos sectionMarginTop active" id="sectionAlimentos">
     <div class="container">
 
       <div class="row">
@@ -220,6 +213,8 @@
       </div>
 
       <div class="slider" id="itensCarousel">
+
+
 
 
         <!-- <div class="card-alimentos">
@@ -317,7 +312,7 @@
 
   <!-- ============ CAROUSEL MEDICAMENTOS ============-->
 
-  <section class="section-medicamentos sectionMarginTop">
+  <section class="section-medicamentos sectionMarginTop" id="sectionMedicamentos">
     <div class="container">
 
       <div class="row">
@@ -413,6 +408,9 @@
 
   <!-- ============ SERVIÇOS ============-->
   <section id="servicos" class="sectionMarginTop">
+
+
+
     <div class="container">
 
       <div class="row">
@@ -436,6 +434,7 @@
       </div>
 
     </div>
+
   </section>
 
 
@@ -500,11 +499,11 @@
     </div>
   </section>
 
-  <!-- MODAL -->
-  <div class="modal-full hidden" id="#modalcarrinho">
+  <!-- ============ MODAL ============-->
+  <div class="modal-full animated fadeIn hidden" id="modalCarrinho">
     <div class="m-header">
       <div class="container">
-        <a class="btn btn-white btn-sm float-end">
+        <a class="btn btn-verde btn-lg float-right" onclick="carousel.metodos.abrirCarrinho(false)">
           Fechar
         </a>
         <div class="etapas">
@@ -513,49 +512,24 @@
           <div class="etapa etapa3 ">3</div>
         </div>
         <p class="title-carrinho mt-4">
-          <b id="lblTituloEtapa">Seu Carrinho</b>
+          <b id="lblTituloEtapa">Seu carrinho:</b>
         </p>
       </div>
     </div>
     <div class="m-body">
-      <div class="container ">
-        <div id="itensCarrinho" class="row mr-0 ml-0 ">
-          <div class="col-12 item-carrinho">
-            <div class="img-produto">
-              <img src="./img/carouselProducts/156616-1600-1600.png" alt="">
-            </div>
-            <div class="dados-produto">
-              <p class="title-produto"><b>Nome do Produto</b></p>
-              <p class="price-produto"><b>R$ 149,90</b></p>
-            </div>
-            <div class="row mx-auto">
-              <div class="col ">
-                <div data-app="product.quantity" id="quantidade">
-                  <input class="btn btn-primary"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                    type="button" id="plus" value='-' onclick="process(-1)" />
-                  <input class="btn btn-primary"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                    id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-                  <input class="btn btn-primary"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                    type="button" id="minus" value='+' onclick="process(1)">
-                  <button class="btn-remove btn btn-success"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                    type="submit"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="container">
+        <div id="itensCarrinho" class="row mr-0 ml-0 animated fadeIn hidden">
 
+          <!--Itens do carrinho-->
+
+        </div>
 
         <div id="localEntrega" class="row mr-0 ml-0 animated fadeIn hidden">
           <div class="col-12 col-lg-4 col-md-4 col-sm-12">
             <div class="form-group container-cep">
               <label>CEP:</label>
               <input type="text" id="txtCEP" class="form-control">
-              <a class="btn btn-yellow btn-sm" onclick="cardapio.metodos.buscarCep()"><i class="fa fa-search"></i></a>
+              <a class="btn btn-yellow btn-sm" onclick="carousel.metodos.buscarCep()"><i class="fa fa-search"></i></a>
             </div>
           </div>
 
@@ -630,8 +604,7 @@
 
         </div>
 
-
-        <div id="resumoCarrinho" class="row mr-0 ml-0 animated fadeIn ">
+        <div id="resumoCarrinho" class="row mr-0 ml-0 animated fadeIn hidden">
           <div class="col-12">
             <p class="title-carrinho mt-4">
               <b>Itens do pedido</b>
@@ -668,9 +641,9 @@
       </div>
 
     </div>
-    <div class="m-footer hidden">
+    <div class="m-footer">
       <div class="container">
-        <div class="container-total text-end mb-4 ">
+        <div class="container-total text-right mb-4">
           <p class="mb-0">
             <span>Subtotal</span>
             <span id="lblSubtotal">R$ 0,00</span>
@@ -684,16 +657,17 @@
             <span class="valor-total"><b id="lblValorTotal">R$ 0,00</b></span>
           </p>
         </div>
-        <a onclick="cardapio.metodos.carregarEndereco()" class="btn btn-yellow float-end" id="btnEtapaPedido">
+        <a onclick="carousel.metodos.carregarEndereco()" class="btn btn-verde btn-lg float-right" id="btnEtapaPedido">
           Continuar
         </a>
-        <a onclick="cardapio.metodos.resumoPedido()" class="btn btn-yellow float-end hidden" id="btnEtapaEndereco">
+        <a onclick="carousel.metodos.resumoPedido()" class="btn btn-verde btn-lg float-right hidden"
+          id="btnEtapaEndereco">
           Revisar pedido
         </a>
-        <a href="#" class="btn btn-yellow float-end hidden" id="btnEtapaResumo" target="_blank">
+        <a href="#" class="btn btn-verde btn-lg float-right hidden" id="btnEtapaResumo" target="_blank">
           Enviar pedido
         </a>
-        <a onclick="cardapio.metodos.voltarEtapa()" class="btn btn-white float-end mr-3 hidden" id="btnVoltar">
+        <a onclick="carousel.metodos.voltarEtapa()" class="btn btn-verde btn-lg float-right mr-3 hidden" id="btnVoltar">
           Voltar
         </a>
       </div>
@@ -701,35 +675,8 @@
     </div>
   </div>
 
-  <!-- <div class="modal-full" id="#modalCarrinho">
-    <div class="m-header">
-      <div class="container">
-        <a href="" class="btn btnwhite btn-sm float-right">
-          Fechar
-        </a>
-      </div>
-    </div>
-    <div class="m-body">
 
-    </div>
-    <div class="m-footer">
 
-    </div>
-  </div> -->
-
-  <!-- {#
-  # Botões de mais e menos para aumentar ou diminuir a quantidade do produto
-  # elements/snippets/botoes_qty.html
-  #}
-  <div data-app="product.quantity" id="quantidade">
-    <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para variação do
-      produto</span>
-    <label>Quantidade:</label>
-    <input type="button" id="plus" value='-' onclick="process(-1)" />
-    <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-    <input type="button" id="minus" value='+' onclick="process(1)">
-  </div>
-  <button type="submit">Comprar</button> -->
 
   <a href="#top">
     <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" data-name="Layer 1">
@@ -786,13 +733,7 @@
   <script src="./js/app.js"></script>
   <script src="./js/carousel.js"></script>
   <script src="./js/index.js"></script>
-
-  <!-- <script src="./js/dados.js"></script>
-  <script src="./js/app.js"></script>
-  <script src="./js/carousel.js"></script>
-  <script src="./js/jquery-3.7.1.js"></script>
-  <script src="./js/slick.min.js"></script>
-  <script src="./js/index.js"></script> -->
+  <script src="./js/slick-init.js"></script>
 
   <script>new WOW().init();</script>
 
